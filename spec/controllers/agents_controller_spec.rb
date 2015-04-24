@@ -378,7 +378,7 @@ describe AgentsController do
   describe "DELETE memory" do
     it "clears memory of the agent" do
       agent = agents(:bob_website_agent)
-      agent.update!(memory: { "test": 42 })
+      agent.update!(memory: { test: 42 })
       sign_in users(:bob)
       delete :destroy_memory, id: agent.to_param
       expect(agent.reload.memory).to eq({})
